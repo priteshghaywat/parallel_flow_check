@@ -3,7 +3,6 @@ name: Child Job 2
 
 on:
   workflow_call:  # This allows it to be called by another workflow
-    type: "workflow_call"  # Specify the type of the event
 
 jobs:
   subjob2:
