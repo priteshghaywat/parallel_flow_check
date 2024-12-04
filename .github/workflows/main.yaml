@@ -1,4 +1,4 @@
-# mainflow/main.yaml
+# .github/workflows/main.yaml
 name: Main Flow
 
 on:
@@ -6,12 +6,12 @@ on:
 
 jobs:
   call-subjob1:
-    uses: ./.github/workflows/subflows/subjob1.yaml
+    uses: ./.github/workflows/subjob1.yaml
     with:
       message: "This is child job 1"
 
   call-subjob2:
-    uses: ./.github/workflows/childflows/subjob2.yaml
+    uses: ./.github/workflows/subjob2.yaml
     with:
       message: "This is child job 2"
 
