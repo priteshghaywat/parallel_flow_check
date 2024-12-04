@@ -22,5 +22,3 @@ jobs:
   call-subjob1:
     needs: main-job  # Ensure this job runs after the main-job completes
     uses: ./.github/workflows/subjob1.yaml
-    with:
-      message: "This is child job 1"

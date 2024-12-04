@@ -3,6 +3,11 @@ name: Child Job 1
 
 on:
   workflow_call:  # This allows it to be called by another workflow
+    inputs:
+      message:
+        description: 'Message for the subjob'
+        required: false
+        default: 'This is child job 1'
 
 jobs:
   subjob1:
@@ -22,5 +27,3 @@ jobs:
   call-subjob2:
     needs: subjob1  # Ensure subjob2 runs after subjob1 completes
     uses: ./.github/workflows/subjob2.yaml
-    with:
-      message: "This is child job 2"
