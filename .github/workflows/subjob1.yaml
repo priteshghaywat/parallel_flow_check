@@ -1,4 +1,4 @@
-# subflows/subjob1.yaml
+# .github/workflows/subjob1.yaml
 name: Child Job 1
 
 on:
