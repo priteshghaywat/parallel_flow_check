@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-subjob1:
-    uses: ./.github/workflows/childflows/subjob1.yaml
+    uses: ./.github/workflows/subflows/subjob1.yaml
     with:
       message: "This is child job 1"
 
