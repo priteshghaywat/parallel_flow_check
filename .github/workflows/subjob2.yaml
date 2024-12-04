@@ -2,15 +2,14 @@
 name: Child Job 2
 
 on:
-  workflow_call:
-    inputs:
-      message:
-        required: true
-        type: string
+  workflow_call:  # This allows it to be called by another workflow
 
 jobs:
   subjob2:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Subjob 2
-        run: echo ${{ inputs.message }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Child job 2 - Print message
+        run: echo "This is child job 2"

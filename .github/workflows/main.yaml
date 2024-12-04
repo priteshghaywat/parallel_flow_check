@@ -2,21 +2,20 @@
 name: Main Flow
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
-  call-subjob1:
-    uses: ./.github/workflows/subjob1.yaml
-    with:
-      message: "This is child job 1"
-
-  call-subjob2:
-    uses: ./.github/workflows/subjob2.yaml
-    with:
-      message: "This is child job 2"
-
   main-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Main Flow
-        run: echo "This is main flow triggered"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Main job - Print message
+        run: echo "This is the main workflow"
+
+  call-subjob1:
+    needs: main-job  # Ensure this job runs after the main-job completes
+    uses: ./.github/workflows/subjob1.yaml
+    with:
+      message: "This is child job 1"
