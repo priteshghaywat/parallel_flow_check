@@ -6,12 +6,12 @@ on:
 
 jobs:
   call-subjob1:
-    uses: ./.github/workflows/subjob1.yaml@main
+    uses: ./.github/workflows/subjob1.yaml
     with:
       message: "This is child job 1"
 
   call-subjob2:
-    uses: ./.github/workflows/subjob2.yaml@main
+    uses: ./.github/workflows/subjob2.yaml
     with:
       message: "This is child job 2"
 
