@@ -1,0 +1,22 @@
+# mainflow/main.yaml
+name: Main Flow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-subjob1:
+    uses: ./.github/workflows/childflows/subjob1.yaml
+    with:
+      message: "This is child job 1"
+
+  call-subjob2:
+    uses: ./.github/workflows/childflows/subjob2.yaml
+    with:
+      message: "This is child job 2"
+
+  main-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Main Flow
+        run: echo "This is main flow"
