@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Main Flow
-        run: echo "This is main flow"
+        run: echo "This is main flow triggered"
