@@ -1,0 +1,16 @@
+# childflows/subjob2.yaml
+name: Child Job 2
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        required: true
+        type: string
+
+jobs:
+  subjob2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Subjob 2
+        run: echo ${{ inputs.message }}
