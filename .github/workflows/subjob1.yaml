@@ -14,8 +14,11 @@ jobs:
       - name: Child job 1 - Print message
         run: echo "This is child job 1"
       
+      - name: Echo timestamp (Subjob 1)
+        run: |
+          timestamp=$(date +'%H:%M:%S')
+          echo "This is child job 1 execution completed at $timestamp"
+          
   call-subjob2:
     needs: subjob1  # Ensure subjob2 runs after subjob1 completes
     uses: ./.github/workflows/subjob2.yaml
-    with:
-      message: "This is child job 2"
