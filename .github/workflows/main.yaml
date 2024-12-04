@@ -6,12 +6,12 @@ on:
 
 jobs:
   call-subjob1:
-    uses: subjob1.yaml
+    uses: ./subjob1.yaml@main
     with:
       message: "This is child job 1"
 
   call-subjob2:
-    uses: subjob2.yaml
+    uses: ./subjob2.yaml@main
     with:
       message: "This is child job 2"
 
