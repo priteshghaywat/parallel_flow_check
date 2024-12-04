@@ -13,3 +13,8 @@ jobs:
 
       - name: Child job 2 - Print message
         run: echo "This is child job 2"
+      
+      - name: Echo timestamp (Subjob 2)
+        run: |
+          timestamp=$(date +'%H:%M:%S')
+          echo "This is child job 2 execution completed at $timestamp"

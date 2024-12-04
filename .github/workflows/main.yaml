@@ -14,6 +14,11 @@ jobs:
       - name: Main job - Print message
         run: echo "This is the main workflow"
 
+      - name: Echo timestamp (Main workflow)
+        run: |
+          timestamp=$(date +'%H:%M:%S')
+          echo "This is the main workflow execution completed at $timestamp"
+          
   call-subjob1:
     needs: main-job  # Ensure this job runs after the main-job completes
     uses: ./.github/workflows/subjob1.yaml
