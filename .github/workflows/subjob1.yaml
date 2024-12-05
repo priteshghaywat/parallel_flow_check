@@ -2,11 +2,7 @@
 name: Subjob 1 Workflow
 
 on:
-  workflow_call:
-    inputs:
-      execution-time:
-        required: true
-        type: string
+  workflow_call:   
 
 jobs:
   child-job-1:
@@ -15,5 +11,4 @@ jobs:
       - name: Start Subjob 1
         run: |
           echo "This is child job 1"
-          echo "Execution time: ${{ inputs.execution-time }}"
-          date
+          
