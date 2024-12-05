@@ -2,19 +2,14 @@
 name: Child Job 2
 
 on:
-  workflow_call:  # This allows it to be called by another workflow
+  workflow_call:  # Allows this workflow to be called from other workflows
 
 jobs:
   subjob2:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Child job 2 - Print message
-        run: echo "This is child job 2"
-      
-      - name: Echo timestamp (Subjob 2)
+      - name: Print message
         run: |
+          echo "This is child job 2"
           timestamp=$(date +'%H:%M:%S')
           echo "This is child job 2 execution completed at $timestamp"
