@@ -3,10 +3,6 @@ name: Subjob 2 Workflow
 
 on:
   workflow_call:
-    inputs:
-      execution-time:
-        required: true
-        type: string
 
 jobs:
   child-job-2:
