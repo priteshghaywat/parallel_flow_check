@@ -15,5 +15,3 @@ jobs:
       - name: Start Subjob 2
         run: |
           echo "This is child job 2"
-          echo "Execution time: ${{ inputs.execution-time }}"
-          date

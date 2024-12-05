@@ -18,11 +18,7 @@ jobs:
   subjob1:
     needs: main-flow
     uses: ./.github/workflows/subjob1.yaml
-    with:
-      execution-time: ${{ github.event.head_commit.timestamp }}
 
   subjob2:
     needs: subjob1
     uses: ./.github/workflows/subjob2.yaml
-    with:
-      execution-time: ${{ github.event.head_commit.timestamp }}
