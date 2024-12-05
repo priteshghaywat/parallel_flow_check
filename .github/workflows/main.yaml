@@ -1,24 +1,28 @@
 # .github/workflows/main.yaml
-name: Main Flow
+name: Main Workflow
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  push:
+    branches:
+      - main
 
 jobs:
-  main-job:
+  main-flow:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Main job - Print message
-        run: echo "This is the main workflow"
-
-      - name: Echo timestamp (Main workflow)
+      - name: Start Main Flow
         run: |
-          timestamp=$(date +'%H:%M:%S')
-          echo "This is the main workflow execution completed at $timestamp"
-          
-  call-subjob1:
-    needs: main-job  # Ensure this job runs after the main-job completes
+          echo "This is main flow"
+          date
+
+  subjob1:
+    needs: main-flow
     uses: ./.github/workflows/subjob1.yaml
+    with:
+      execution-time: ${{ github.event.head_commit.timestamp }}
+
+  subjob2:
+    needs: subjob1
+    uses: ./.github/workflows/subjob2.yaml
+    with:
+      execution-time: ${{ github.event.head_commit.timestamp }}

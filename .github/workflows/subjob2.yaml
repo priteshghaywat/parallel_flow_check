@@ -1,15 +1,19 @@
 # .github/workflows/subjob2.yaml
-name: Child Job 2
+name: Subjob 2 Workflow
 
 on:
-  workflow_call:  # Allows this workflow to be called from other workflows
+  workflow_call:
+    inputs:
+      execution-time:
+        required: true
+        type: string
 
 jobs:
-  subjob2:
+  child-job-2:
     runs-on: ubuntu-latest
     steps:
-      - name: Print message
+      - name: Start Subjob 2
         run: |
           echo "This is child job 2"
-          timestamp=$(date +'%H:%M:%S')
-          echo "This is child job 2 execution completed at $timestamp"
+          echo "Execution time: ${{ inputs.execution-time }}"
+          date
